@@ -1,5 +1,3 @@
-/* Add your CSS here */
-
 /* Set a clean, professional font similar to Intel's style */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -11,88 +9,63 @@ body {
 
 /* Header styles */
 header {
-  background: #0f2d52; /* Intel dark blue */
+  background: #0f2d52;
   color: #fff;
-  padding: 48px 0 56px 0; /* More space above and below header */
+  padding: 48px 0 56px 0;
   text-align: center;
 }
 
-/* Add more space between header elements */
 header img {
   width: 120px;
-  margin-bottom: 28px; /* More space below logo */
+  margin-bottom: 28px;
 }
 
 header h1 {
-  font-size: 2.2em;
-  margin: 0 0 28px 0; /* More space below title */
+  font-size: 2.5em;
+  margin: 0 0 28px 0;
   font-weight: 600;
   letter-spacing: 1px;
 }
 
 header p {
   font-size: 1.1em;
-  margin: 0 auto 40px auto; /* More space below subheading */
+  margin: 0 auto 40px auto;
   max-width: 500px;
 }
 
-/* Subheading style: noticeable but not as bold as the main heading */
 .subheading {
-  font-size: 1.15em;      /* Slightly larger than normal text */
-  color: #e0e6ed;         /* Light blue-gray for contrast */
-  font-weight: 400;       /* Normal weight, not bold */
+  font-size: 1.15em;
+  color: #e0e6ed;
+  font-weight: 400;
   margin-top: 10px;
   margin-bottom: 40px;
   max-width: 500px;
   display: block;
-  /* Add a little letter spacing for clarity */
   letter-spacing: 0.2px;
-}
-
-/* Timeline section styles */
-.timeline-gallery {
-  /* Make the section horizontally scrollable on desktop */
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  gap: 24px; /* space between cards */
-  padding: 32px 16px;
-  scroll-snap-type: x mandatory; /* helps snap to cards */
-  scroll-behavior: smooth;       /* smooth horizontal scrolling */
-  background: #00A6F0; /* Light background for gallery area */
-  width: 100vw;        /* Make section full width */
-  /* Remove min-width and max-width */
-  margin-top: 24px; /* Less space between header and gallery */
 }
 
 /* Timeline card styles */
 .timeline-card {
-  /* Each card */
-  flex: 0 0 33.33%; /* Show 3 cards at a time on desktop */
-  background: navy ;
+  background: navy;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(15,45,82,0.08);
   position: relative;
   overflow: hidden;
-  width: calc((100vw - 48px) / 3); /* 3 cards + 2 gaps of 24px */
-  max-width: none;
-  min-width: 0;
-  height: 440px; /* Card height */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Make sure content starts at the top */
-  scroll-snap-align: start;      /* snap each card to the start */
-  transition: box-shadow 0.2s, transform 0.2s; /* Smooth transition for shadow and transform */
+  justify-content: flex-start;
+  scroll-snap-align: start;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .timeline-card img {
   width: 100%;
-  height: 100%;           /* Image fills the card vertically */
-  object-fit: contain;    /* Show the whole image, no cropping */
+  height: 100%;
+  object-fit: contain;
   border-radius: 12px 12px 0 0;
   transition: filter 0.3s;
-  flex-grow: 1;           /* Allow image to grow if needed */
+  flex-grow: 1;
 }
 
 /* Hide card text by default */
@@ -102,42 +75,39 @@ header p {
   display: none;
 }
 
-/* Overlay for hover effect */
 .timeline-card::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15, 45, 82, 0.88); /* Intel dark blue with opacity */
+  background: rgba(15, 45, 82, 0.88);
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 1;
 }
 
-/* Show text and overlay on hover */
 .timeline-card:hover::after {
   opacity: 1;
 }
 
-/* Add transform and stronger shadow on hover for engaging effect */
 .timeline-card:hover {
-  transform: scale(1.04); /* Slightly enlarge the card */
-  box-shadow: 0 8px 24px rgba(15,45,82,0.18); /* Stronger shadow */
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(15,45,82,0.18);
 }
 
 .timeline-card:hover img {
   filter: grayscale(70%) brightness(0.7);
 }
 
-/* Show text on hover, style it */
 .timeline-card:hover h2,
 .timeline-card:hover h3,
 .timeline-card:hover p {
   display: block;
   position: absolute;
-  left: 0; right: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   color: #fff;
-  text-align: center;
+  text-align: right;
   font-family: 'Segoe UI', Arial, sans-serif;
   padding: 0 16px;
 }
@@ -164,11 +134,6 @@ header p {
   overflow-y: auto;
 }
 
-/* Position text absolutely inside the card */
-.timeline-card {
-  position: relative;
-}
-
 .timeline-card h2,
 .timeline-card h3,
 .timeline-card p {
@@ -178,15 +143,20 @@ header p {
   margin: 0 auto;
 }
 
-/* Responsive: Show 2 cards at a time on tablets */
+.timeline-card button {
+  z-index: 2;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 70%;
+}
+
+/* Responsive adjustments */
 @media (max-width: 1023px) and (min-width: 701px) {
-  /* Use .timeline-gallery instead of section */
-  .timeline-gallery {
-    /* No max-width needed */
-  }
   .timeline-card {
-    width: calc((100vw - 24px) / 2); /* 2 cards + 1 gap */
-    max-width: none;
+    width: calc((100vw - 24px) / 2);
     height: auto;
   }
   .timeline-card img {
@@ -195,20 +165,17 @@ header p {
   }
 }
 
-/* Responsive: Show 1 card per row and stack vertically on small screens */
 @media (max-width: 700px) {
-  /* Change from section to .timeline-gallery for correct targeting */
   .timeline-gallery {
-    flex-direction: column; /* Stack cards vertically */
-    overflow-x: visible;    /* No horizontal scroll */
+    flex-direction: column;
+    overflow-x: visible;
     gap: 24px;
     padding: 24px 8px;
-    background: #0f2d52; /* Match rest of page on mobile */
+    background: #0f2d52;
     max-width: 100%;
   }
   .timeline-card {
     width: 100%;
-    max-width: none;
     height: auto;
   }
   .timeline-card img {
@@ -217,40 +184,87 @@ header p {
   }
 }
 
-/* Show scroll bar for horizontal scrolling */
+/* Scrollbar styling */
 section {
-  /* Use Intel blue for the thumb and a light blue for the track */
   scrollbar-color: navy #E6E6E6;
   scrollbar-width: thin;
 }
 
-/* For Webkit browsers */
 section::-webkit-scrollbar {
   height: 12px;
 }
 section::-webkit-scrollbar-thumb {
-  background: #0055FF;      /* Intel blue */
+  background: #0055FF;
   border-radius: 6px;
-  /* Make the border thicker and add a shadow for better visibility */
-  box-shadow: 0 0 0 3px #fff inset, 0 0 4px #0f2d52; /* White border and dark blue shadow */
+  box-shadow: 0 0 0 3px #fff inset, 0 0 4px #0f2d52;
 }
 section::-webkit-scrollbar-track {
-  background: #e6f0fa;      /* Light blue */
+  background: #e6f0fa;
   border-radius: 6px;
 }
 
-/* Small instruction text at the bottom */
+/* Instruction text below gallery */
 body > p {
   text-align: center;
-  background: #0f2d52; /* Intel dark blue */
-  color: #fff;         /* White text */
+  background: #0f2d52;
+  color: #fff;
   font-size: 1em;
   margin-bottom: 0;
   padding: 24px 0 32px 0;
 }
 
-/* Make everything after the gallery section dark blue with white text */
-section + * {
-  background: #0f2d52; /* Intel dark blue */
-  color: #fff;
+/* Icon Section Image Centering */
+section.container .row img {
+  display: block;
+  margin: 0 auto 16px auto;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #0f2d52;
+  color: white;
+}
+
+footer .form-label {
+  color: white;
+}
+
+footer input {
+  background-color: white;
+  color: black;
+}
+
+footer button {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Bootstrap Modal RTL Fix */
+.modal-header .btn-close {
+  margin-left: auto;
+}
+
+/* 🔧 Force horizontal layout + spacing */
+.timeline-gallery {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  gap: 24px !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth !important;
+  padding: 32px 16px !important;
+  background: #00A6F0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 🔧 Ensure timeline cards scroll side-by-side */
+.timeline-gallery > .timeline-card {
+  flex: 0 0 auto !important;
+  min-width: 320px !important;
+  max-width: 360px !important;
+  height: 440px !important;
+  box-sizing: border-box !important;
 }
