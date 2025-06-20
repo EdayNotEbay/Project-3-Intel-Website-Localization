@@ -1,7 +1,7 @@
 /* Set a clean, professional font similar to Intel's style */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #0f2d52; /* Intel dark blue */
+  background: #0f2d52;
   color: #222;
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ header img {
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   margin: 0 0 28px 0;
   font-weight: 600;
   letter-spacing: 1px;
@@ -35,7 +35,7 @@ header p {
 
 .subheading {
   font-size: 1.15em;
-  color: #e0e6ed;
+  color: #fff; /* Changed to pure white for better contrast */
   font-weight: 400;
   margin-top: 10px;
   margin-bottom: 40px;
@@ -44,13 +44,32 @@ header p {
   letter-spacing: 0.2px;
 }
 
+/* Timeline section styles */
+.timeline-gallery {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 24px;
+  padding: 32px 16px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  background: #00A6F0;
+  width: 100vw;
+  margin-top: 24px;
+}
+
 /* Timeline card styles */
 .timeline-card {
+  flex: 0 0 33.33%;
   background: navy;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(15,45,82,0.08);
   position: relative;
   overflow: hidden;
+  width: calc((100vw - 48px) / 3);
+  max-width: none;
+  min-width: 0;
+  height: 440px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +126,7 @@ header p {
   right: 0;
   z-index: 2;
   color: #fff;
-  text-align: right;
+  text-align: center;
   font-family: 'Segoe UI', Arial, sans-serif;
   padding: 0 16px;
 }
@@ -153,38 +172,7 @@ header p {
   width: 70%;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1023px) and (min-width: 701px) {
-  .timeline-card {
-    width: calc((100vw - 24px) / 2);
-    height: auto;
-  }
-  .timeline-card img {
-    height: auto;
-    max-height: 220px;
-  }
-}
-
-@media (max-width: 700px) {
-  .timeline-gallery {
-    flex-direction: column;
-    overflow-x: visible;
-    gap: 24px;
-    padding: 24px 8px;
-    background: #0f2d52;
-    max-width: 100%;
-  }
-  .timeline-card {
-    width: 100%;
-    height: auto;
-  }
-  .timeline-card img {
-    height: auto;
-    max-height: 220px;
-  }
-}
-
-/* Scrollbar styling */
+/* Show scroll bar for horizontal scrolling */
 section {
   scrollbar-color: navy #E6E6E6;
   scrollbar-width: thin;
@@ -211,6 +199,12 @@ body > p {
   font-size: 1em;
   margin-bottom: 0;
   padding: 24px 0 32px 0;
+}
+
+/* Make everything after the gallery section dark blue with white text */
+section + * {
+  background: #0f2d52;
+  color: #fff;
 }
 
 /* Icon Section Image Centering */
@@ -244,27 +238,70 @@ footer button {
   margin-left: auto;
 }
 
-/* 🔧 Force horizontal layout + spacing */
-.timeline-gallery {
-  display: flex !important;
-  flex-direction: row !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  flex-wrap: nowrap !important;
-  width: 100% !important;
-  gap: 24px !important;
-  scroll-snap-type: x mandatory !important;
-  scroll-behavior: smooth !important;
-  padding: 32px 16px !important;
-  background: #00A6F0 !important;
-  box-sizing: border-box !important;
+/* Responsive: Show 2 cards at a time on tablets */
+@media (max-width: 1023px) and (min-width: 701px) {
+  .timeline-gallery {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 32px 16px;
+    background: #00A6F0;
+  }
+  .timeline-card {
+    flex: 0 0 auto;
+    width: calc((100vw - 24px) / 2); /* 2 cards + 1 gap */
+    max-width: none;
+    height: auto;
+  }
+  .timeline-card img {
+    height: auto;
+    max-height: 220px;
+  }
 }
 
-/* 🔧 Ensure timeline cards scroll side-by-side */
-.timeline-gallery > .timeline-card {
-  flex: 0 0 auto !important;
-  min-width: 320px !important;
-  max-width: 360px !important;
-  height: 440px !important;
-  box-sizing: border-box !important;
+/* Responsive: Show 1 card per row and stack vertically on small screens */
+@media (max-width: 700px) {
+  .timeline-gallery {
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: visible;    /* No horizontal scroll */
+    gap: 24px;
+    padding: 24px 8px;
+    background: #0f2d52; /* Match rest of page on mobile */
+    max-width: 100%;
+  }
+  .timeline-card {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+  .timeline-card img {
+    height: auto;
+    max-height: 220px;
+  }
+}
+
+/* 🔧 Force horizontal layout + spacing only on wider screens */
+@media (min-width: 701px) {
+  .timeline-gallery {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    gap: 24px !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    padding: 32px 16px !important;
+    background: #00A6F0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .timeline-gallery > .timeline-card {
+    flex: 0 0 auto !important;
+    min-width: 320px !important;
+    max-width: 360px !important;
+    height: 440px !important;
+    box-sizing: border-box !important;
+  }
 }

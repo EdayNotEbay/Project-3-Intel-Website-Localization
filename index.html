@@ -9,6 +9,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Add Google Fonts and Material Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <!-- Auto RTL Language Detection -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -108,20 +112,86 @@
     قم بالتمرير لعرض الجدول الزمني | مرر الفأرة فوق البطاقات لمعرفة المزيد!
   </p>
 
-  <!-- Footer / Subscription Form -->
-  <footer class="bg-light py-5 mt-5">
-    <div class="container">
-      <form class="row g-3 justify-content-center" aria-label="نموذج الاشتراك بالنشرة الإخبارية">
-        <div class="col-md-5">
-          <label for="newsletter-email" class="form-label">البريد الإلكتروني</label>
-          <input type="email" class="form-control" id="newsletter-email" placeholder="name@example.com" required aria-required="true">
+  <!-- New Responsive Three-Column Section (RTL) -->
+  <!-- This section uses a white background, modern font, and accessible contrast. -->
+  <section class="container my-5" style="background: #fff; border-radius: 12px; font-family: 'Roboto', Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+    <div class="row text-center py-4">
+      <!-- First Column -->
+      <div class="col-12 col-md-4 mb-4">
+        <!-- Blue heading with icon -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <span class="material-icons" style="color: #42a5f5; font-size: 40px;">public</span>
+          <h3 style="color: #0071C5; font-weight: 700; margin-top: 8px;">الاستدامة البيئية</h3>
         </div>
-        <div class="col-md-3 d-flex align-items-end">
-          <button type="submit" class="btn btn-primary w-100">اشترك الآن</button>
+        <!-- Description -->
+        <p style="color: #222; font-size: 1.05rem;">نلتزم بحماية البيئة من خلال تقنيات صديقة للمناخ.</p>
+        <a href="#" class="btn btn-primary" style="font-weight: 500;">اعرف المزيد</a>
+      </div>
+      <!-- Second Column -->
+      <div class="col-12 col-md-4 mb-4">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <span class="material-icons" style="color: #42a5f5; font-size: 40px;">diversity_3</span>
+          <h3 style="color: #0071C5; font-weight: 700; margin-top: 8px;">الشمولية والتنوع</h3>
         </div>
-      </form>
+        <p style="color: #222; font-size: 1.05rem;">نعمل على تعزيز بيئة عمل شاملة ومتنوعة للجميع.</p>
+        <a href="#" class="btn btn-primary" style="font-weight: 500;">اعرف المزيد</a>
+      </div>
+      <!-- Third Column -->
+      <div class="col-12 col-md-4 mb-4">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <span class="material-icons" style="color: #42a5f5; font-size: 40px;">lightbulb</span>
+          <h3 style="color: #0071C5; font-weight: 700; margin-top: 8px;">الابتكار المستدام</h3>
+        </div>
+        <p style="color: #222; font-size: 1.05rem;">نبتكر حلولاً جديدة تدعم الاستدامة والتقدم التقني.</p>
+        <a href="#" class="btn btn-primary" style="font-weight: 500;">اعرف المزيد</a>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- Newsletter Subscription Form using Bootstrap (Beginner Friendly) -->
+  <section class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <!-- Card for white background and shadow -->
+        <div class="card shadow-sm rounded-3 p-4">
+          <!-- Form heading -->
+          <h2 class="text-center fw-bold mb-4" style="color: #0071C5;">Subscribe to our Newsletter</h2>
+          <!-- Start of the form -->
+          <form>
+            <!-- First Name Field -->
+            <div class="mb-3">
+              <label for="first-name" class="form-label fw-bold" style="color: #0071C5;">First Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Enter your first name" required>
+              <div class="form-text">Your first name will help us personalize your experience.</div>
+            </div>
+            <!-- Last Name Field -->
+            <div class="mb-3">
+              <label for="last-name" class="form-label fw-bold" style="color: #0071C5;">Last Name</label>
+              <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Enter your last name">
+              <div class="form-text">Your last name will help us address you properly.</div>
+            </div>
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label fw-bold" style="color: #0071C5;">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required>
+              <div class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <!-- Consent Checkbox -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="consent" name="consent">
+              <label class="form-check-label" for="consent">
+                I agree to receive communications about Intel's sustainability initiatives.
+              </label>
+            </div>
+            <!-- Subscribe Button -->
+            <div class="text-center">
+              <button type="submit" class="btn" style="background: #00b6f0; color: #fff; font-weight: 700; min-width: 140px;">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Modal Component -->
   <div class="modal fade" id="timelineModal" tabindex="-1" aria-labelledby="timelineModalLabel" aria-hidden="true">
